@@ -2,18 +2,20 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import { Api } from './api/api.js';
 import { useWeatherData } from './api/api.js';
+import Today from './components/Today';
 
 function App() {  
-  const {weatherData, setWeatherData} = useWeatherData();
+  const {weatherData} = useWeatherData();
+  const [isTempUnit] = useState(true);
 
   useEffect(() => {
     
-    console.log(weatherData)
+    // console.log(weatherData)
   }, [weatherData])
 
   return (
     <div>
-      
+      {Object.keys(weatherData).length > 0 && <Today weatherData={weatherData} isTempUnit={isTempUnit} />}
     </div>
   );
 }
