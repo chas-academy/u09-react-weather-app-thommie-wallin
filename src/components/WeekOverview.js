@@ -1,5 +1,3 @@
-import React from 'react'
-
 const WeekOverview = (props) => {
   const weatherData = props.weatherData;
   const isTempUnit = props.isTempUnit;
@@ -17,15 +15,13 @@ const WeekOverview = (props) => {
 
   // Get temperatures
   const temps = weatherData.daily.map(t => {
-    // Check if user choose celsius or fahrenheit, temp rounded to one decimal and parsed into an integer
+    // Check if user choose celsius or fahrenheit, temp rounded to one decimal and parsed into an integer.
     const temperature = isTempUnit ? parseFloat((t.temp.day-273.15).toFixed(1)) : parseFloat((((t.temp.day-273.15)*1.8)+32).toFixed(1));
     return temperature;  
   })
 
-console.log(temps)
-
-  // Check if user choose celsius or fahrenheit, temp rounded to one decimal
-  const tempToday = isTempUnit ? (weatherData.current.temp-273.15).toFixed(1) : (((weatherData.current.temp-273.15)*1.8)+32).toFixed(1);
+  // Get todays temp and check if user choose celsius or fahrenheit, temp rounded to one decimal.
+  const tempToday = isTempUnit ? parseFloat((weatherData.current.temp-273.15).toFixed(1)) : parseFloat((((weatherData.current.temp-273.15)*1.8)+32).toFixed(1));
 
   return (
     <div>
