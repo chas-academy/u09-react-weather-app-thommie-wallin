@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
 import { Api } from './api/api.js';
 import { useWeatherData } from './api/api.js';
@@ -24,15 +25,33 @@ function App() {
   // }, [isTempUnit])
 
   return (
-    <div>
-      <button onClick={toggleUnit}>
-        Change {isTempUnit ? '℃' : '℉'}
-      </button>
-      {Object.keys(weatherData).length > 0 && <Today weatherData={weatherData} isTempUnit={isTempUnit} />}
-      {Object.keys(weatherData).length > 0 && <WeekOverview weatherData={weatherData} isTempUnit={isTempUnit} />}
-      {Object.keys(weatherData).length > 0 && <Hourly weatherData={weatherData} isTempUnit={isTempUnit} />}
-      {Object.keys(weatherData).length > 0 && <WeekForecast weatherData={weatherData} isTempUnit={isTempUnit} />}
-    </div>
+    <Router>
+      <div>
+        <h1>u09 Weather App</h1>
+        <button onClick={toggleUnit}>
+          Change {isTempUnit ? '℃' : '℉'}
+        </button>
+        <ul>
+          <li><Link to="/">Today</Link></li>
+          <li><Link to="/hourly">Hourly</Link></li>
+          <li><Link to="/fiveday">5 day</Link></li>
+        </ul>
+        <div className="content">
+          <Switch>
+            <Route exact path="/">
+              {Object.keys(weatherData).length > 0 && <Today weatherData={weatherData} isTempUnit={isTempUnit} />}
+              {Object.keys(weatherData).length > 0 && <WeekOverview weatherData={weatherData} isTempUnit={isTempUnit} />}
+            </Route>
+            <Route path="/hourly">
+              {Object.keys(weatherData).length > 0 && <Hourly weatherData={weatherData} isTempUnit={isTempUnit} />}
+            </Route>
+            <Route path="/fiveday">
+              {Object.keys(weatherData).length > 0 && <WeekForecast weatherData={weatherData} isTempUnit={isTempUnit} />}
+            </Route>
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 
@@ -53,4 +72,5 @@ export default App;
 //* 5-dagarsprognos
 //* Nyttja ett väder-API, t.ex. SMHI, YR.NO, OpenWeatherMaps
 //* Nyttja positionering via geolocation i webbläsaren
+//* Routing 
 //? Design/färg & form baserad på weather.com (Länkar till en externa sida.)Länkar till en externa sida. eller liknande applikationer/appar
