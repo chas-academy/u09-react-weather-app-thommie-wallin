@@ -4,6 +4,7 @@ import { Api } from './api/api.js';
 import { useWeatherData } from './api/api.js';
 import Today from './components/Today';
 import WeekOverview from './components/WeekOverview';
+import Hourly from './components/Hourly';
 
 function App() {  
   const {weatherData} = useWeatherData();
@@ -18,6 +19,7 @@ function App() {
     <div>
       {Object.keys(weatherData).length > 0 && <Today weatherData={weatherData} isTempUnit={isTempUnit} />}
       {Object.keys(weatherData).length > 0 && <WeekOverview weatherData={weatherData} isTempUnit={isTempUnit} />}
+      {Object.keys(weatherData).length > 0 && <Hourly weatherData={weatherData} isTempUnit={isTempUnit} />}
     </div>
   );
 }
