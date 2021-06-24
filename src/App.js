@@ -9,15 +9,25 @@ import WeekForecast from './components/WeekForecast';
 
 function App() {  
   const {weatherData} = useWeatherData();
-  const [isTempUnit] = useState(true);
+  const [isTempUnit, setIsTempUnit] = useState(true);
 
-  useEffect(() => {
+  // Toggle temperature unit
+  const toggleUnit = () => {
+    setIsTempUnit(
+      isTempUnit ? false : true
+    )
+  }
+
+  // useEffect(() => {
     
-    console.log(weatherData)
-  }, [weatherData])
+  //   console.log(isTempUnit)
+  // }, [isTempUnit])
 
   return (
     <div>
+      <button onClick={toggleUnit}>
+        Change {isTempUnit ? '℃' : '℉'}
+      </button>
       {Object.keys(weatherData).length > 0 && <Today weatherData={weatherData} isTempUnit={isTempUnit} />}
       {Object.keys(weatherData).length > 0 && <WeekOverview weatherData={weatherData} isTempUnit={isTempUnit} />}
       {Object.keys(weatherData).length > 0 && <Hourly weatherData={weatherData} isTempUnit={isTempUnit} />}
@@ -36,7 +46,7 @@ export default App;
 //* Vindstyrka
 //* Luftfuktighet
 //* Soluppgång och nedgång (klockslag)
-//? Välja mellan Farenheit och Celsius
+//* Välja mellan Farenheit och Celsius
 // - Kunna få en väderleksprognos för väderförhållanden (enligt ovan) 5 dagar framåt 
 //* Kort översikt för veckan
 //* Var tredje timme för nuvarande dygn
