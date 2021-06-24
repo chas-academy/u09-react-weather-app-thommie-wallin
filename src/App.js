@@ -27,7 +27,8 @@ function App() {
   return (
     <Router>
       <div>
-        <h1>u09 Weather App</h1>
+        <h1>u09 Weather App </h1>
+        <h3>Time Zone: {weatherData.timezone}</h3>
         <button onClick={toggleUnit}>
           Change {isTempUnit ? '℃' : '℉'}
         </button>

@@ -5,7 +5,7 @@ export const useWeatherData = () => {
   const {latitude, longitude, error} = useGeolocation();
   const [weatherData, setWeatherData] = useState({});
   const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
-  const parameter = 'alert,minutely,hourly,daily';
+  const parameter = 'alert,minutely';
 
   useEffect(() => {
     // *API
@@ -23,9 +23,9 @@ export const useWeatherData = () => {
     }
     
 
-    // setWeatherDa
+    // setWeatherD
 
-    // console.log(weatherData)
+    console.log(weatherData)
   }, [latitude])
 
   
