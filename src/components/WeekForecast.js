@@ -1,3 +1,5 @@
+import '../styles/WeekForecast.css';
+
 const WeekForecast = (props) => {
   const weatherData = props.weatherData;
   const isTempUnit = props.isTempUnit;
@@ -28,9 +30,9 @@ const WeekForecast = (props) => {
 
 
   return (
-    <div>
+    <div className="content-forecast">
       <h3>5 Day Weather</h3>
-      <ul>
+      <ul className="list-forecast">
         {dateData}
       </ul>
     </div>

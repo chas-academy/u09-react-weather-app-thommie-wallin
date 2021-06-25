@@ -26,18 +26,26 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <h1>u09 Weather App </h1>
-        <h3>Time Zone: {weatherData.timezone}</h3>
-        <button onClick={toggleUnit}>
-          Change {isTempUnit ? '℃' : '℉'}
-        </button>
-        <ul>
-          <li><Link to="/">Today</Link></li>
-          <li><Link to="/hourly">Hourly</Link></li>
-          <li><Link to="/fiveday">5 day</Link></li>
-        </ul>
-        <div className="content">
+      <div className="content">
+        <header className="header">
+          <div className="title">
+            <h1>u09 Weather App </h1>
+            <button onClick={toggleUnit}>
+              Change {isTempUnit ? '℃' : '℉'}
+            </button>
+          </div>
+          <div className="timezone">
+            <h3>Time Zone: {weatherData.timezone}</h3>
+          </div>
+        </header>
+        <nav className="navbar">
+          <ul className="navList">
+            <li><Link to="/">Today</Link></li>
+            <li><Link to="/hourly">Hourly</Link></li>
+            <li><Link to="/fiveday">5 day</Link></li>
+          </ul>
+        </nav>
+        <div className="router-content">
           <Switch>
             <Route exact path="/">
               {Object.keys(weatherData).length > 0 && <Today weatherData={weatherData} isTempUnit={isTempUnit} />}
