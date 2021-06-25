@@ -1,3 +1,5 @@
+import '../styles/Hourly.css';
+
 const Hourly = (props) => {
   const weatherData = props.weatherData;
   const isTempUnit = props.isTempUnit;
@@ -26,9 +28,9 @@ const Hourly = (props) => {
   })
 
   return (
-    <div>
+    <div className="content-hourly">
       <h3>Hourly weather - {date}</h3>
-      <ul>
+      <ul className="list-hourly">
         {hourlyData}
       </ul>
     </div>

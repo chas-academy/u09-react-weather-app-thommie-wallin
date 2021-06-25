@@ -1,3 +1,5 @@
+import '../styles/Today.css';
+
 const Today = (props) => {
   const weatherData = props.weatherData;
   const isTempUnit = props.isTempUnit;
@@ -8,10 +10,10 @@ const Today = (props) => {
   const temp = isTempUnit ? (weatherData.current.temp-273.15).toFixed(1) : (((weatherData.current.temp-273.15)*1.8)+32).toFixed(1);
 
   return (
-    <div>
-      <h3>The weather today in your current position</h3>
-      <ul>
-        <li>Temp: {temp} {isTempUnit ? '℃' : '℉'}</li>
+    <div className="content-today">
+      <h3>The weather today</h3>
+      <ul className="list-today">
+        <li><h1>{temp} {isTempUnit ? '℃' : '℉'}</h1></li>
         <li>Wind speed: {weatherData.current.wind_speed} m/s</li>
         <li>Humidity: {weatherData.current.humidity} %</li>
         <li>Sunrise/Sunset: {sunrise}/{sunset}</li>

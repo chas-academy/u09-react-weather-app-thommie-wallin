@@ -9,18 +9,18 @@ export const useWeatherData = () => {
 
   useEffect(() => {
     // *API
-    // if (latitude && longitude) {
-    //   fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=${parameter}&appid=${apiKey}`)
-    //     .then(response => response.json())
-    //     .then(data => setWeatherData(data));
-    // }
-
-    //* JSON 
     if (latitude && longitude) {
-      fetch(`./apiCall.json`)
+      fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=${parameter}&appid=${apiKey}`)
         .then(response => response.json())
         .then(data => setWeatherData(data));
     }
+
+    //* JSON 
+    // if (latitude && longitude) {
+    //   fetch(`./apiCall.json`)
+    //     .then(response => response.json())
+    //     .then(data => setWeatherData(data));
+    // }
     
 
     // setWeatherD
