@@ -9,7 +9,7 @@ const Hourly = (props) => {
   const date = new Date(weatherData.hourly[0].dt * 1000).toDateString();
 
   // Get data from every third hour from a day
-  const hourlyData = weatherData.hourly.slice(0, 24).filter((_,i) => i % 3 == 0).map((d, i) => {
+  const hourlyData = weatherData.hourly.slice(0, 24).filter((_,i) => i % 3 === 0).map((d, i) => {
     // Get the hour
     const hour = new Date(d.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 

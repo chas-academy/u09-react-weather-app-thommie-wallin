@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
-import { Api } from './api/api.js';
 import { useWeatherData } from './api/api.js';
 import Today from './components/Today';
 import WeekOverview from './components/WeekOverview';
@@ -18,11 +17,6 @@ function App() {
       isTempUnit ? false : true
     )
   }
-
-  // useEffect(() => {
-    
-  //   console.log(isTempUnit)
-  // }, [isTempUnit])
 
   return (
     <Router>
@@ -65,21 +59,3 @@ function App() {
 }
 
 export default App;
-
-
-//TODO Som användare ska man kunna göra följande:
-
-// - Kunna se följande väderförhållanden för sin nuvarande position:
-//* Temperatur
-//* Vindstyrka
-//* Luftfuktighet
-//* Soluppgång och nedgång (klockslag)
-//* Välja mellan Farenheit och Celsius
-// - Kunna få en väderleksprognos för väderförhållanden (enligt ovan) 5 dagar framåt 
-//* Kort översikt för veckan
-//* Var tredje timme för nuvarande dygn
-//* 5-dagarsprognos
-//* Nyttja ett väder-API, t.ex. SMHI, YR.NO, OpenWeatherMaps
-//* Nyttja positionering via geolocation i webbläsaren
-//* Routing 
-//? Design/färg & form baserad på weather.com (Länkar till en externa sida.)Länkar till en externa sida. eller liknande applikationer/appar
