@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-.header {
-  /* margin-bottom: 1rem; */
-  /* min-height: 2rem; */
-}
-
 .title {
   display: flex;
   justify-content: space-around;
@@ -16,6 +11,19 @@
   background-color: #6E3F98;
   color: whitesmoke;
   height: 4.5rem;
+}
+
+.title > button {
+  padding: .5rem;
+  border-radius: 25px;
+  box-shadow: 0 0 12px 0 rgb(0 0 0 / 20%);
+  transition-duration: 0.2s;
+  background-color: whitesmoke;
+}
+
+.title > button:active {
+  background-color: #6E3F98;
+  color: whitesmoke;
 }
 
 .timezone {

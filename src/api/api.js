@@ -8,27 +8,12 @@ export const useWeatherData = () => {
   const parameter = 'alert,minutely';
 
   useEffect(() => {
-    // *API
     if (latitude && longitude) {
       fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=${parameter}&appid=${apiKey}`)
         .then(response => response.json())
         .then(data => setWeatherData(data));
     }
-
-    //* JSON 
-    // if (latitude && longitude) {
-    //   fetch(`./apiCall.json`)
-    //     .then(response => response.json())
-    //     .then(data => setWeatherData(data));
-    // }
-    
-
-    // setWeatherD
-
-    console.log(weatherData)
-  }, [latitude])
-
-  
+  }, [latitude, longitude, apiKey])
 
   return {weatherData, error};
 }
